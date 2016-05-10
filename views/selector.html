@@ -1,4 +1,69 @@
 
+<row>
+	<div class="col-md-2">
+		<h7>Hotels</h7>
+	</div>
+	<div class="col-md-8">
+		<div class="dropdown">
+		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		    Select a hotel
+		    <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+		  	{% for hotel in hotels %}
+		      <li><a href="#">{{hotel.name}}</a></li>
+				{% endfor %}
+		  </ul>
+		</div>
+	</div>
+	<div class="col-md-2">
+		<button type="button" class="btn btn-danger">X</button>
+	</div>
+</row>
+<row>
+	<div class="col-md-2">
+		<h7>Restaurants</h7>
+	</div>
+	<div class="col-md-8">
+		<div class="dropdown">
+		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		    Select a restaurant
+		    <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+		  	{% for restaurant in restaurants %}
+		      <li><a href="#">{{restaurant.name}}</a></li>
+				{% endfor %}
+		  </ul>
+		</div>
+	</div>
+	<div class="col-md-2">
+		<button type="button" class="btn btn-danger">X</button>
+	</div>
+</row>
+<row>
+	<div class="col-md-2">
+		<h7>Activities</h7>
+	</div>
+	<div class="col-md-8">
+	  <div class="dropdown">
+		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		    Select an activity
+		    <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+		  	{% for activity in activities %}
+		      <li><a href="#">{{activity.name}}</a></li>
+				{% endfor %}
+		  </ul>
+		</div>
+	</div>
+	<div class="col-md-2">
+		<button type="button" class="btn btn-danger">X</button>
+	</div>
+</row>
+
+
 
 Hotels: <select>{% for hotel in hotels %}
 
