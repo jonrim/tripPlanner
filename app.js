@@ -35,10 +35,14 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use('/bootstrap', express.static(path.join(__dirname, '/node_modules/bootstrap/dist')));
 app.use('/jquery', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
 
-// start the server
-var server = app.listen(3000, function(){
-  console.log('listening on port 3000');
+models.sync({}).then( result => {
+  // start the server
+  var server = app.listen(3000, function(){
+    console.log('listening on port 3000');
+  });
 });
+
+// var io = socketio.listen(server);
 
 // include force: true on lines 48 and 50
 // to wipe the database clean on every reboot
@@ -71,6 +75,7 @@ app.get('/', function(req, res, next) {
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   console.error(err);
+  console.trace(err);
   // res.render(
   //   // ... fill in this part
   // );
