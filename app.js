@@ -33,10 +33,13 @@ client.connect();
 // the typical way to use express static middleware.
 app.use(express.static(path.join(__dirname, '/public')));
 
-// start the server
-var server = app.listen(3000, function(){
-  console.log('listening on port 3000');
+models.sync({}).then( result => {
+  // start the server
+  var server = app.listen(3000, function(){
+    console.log('listening on port 3000');
+  });
 });
+
 // var io = socketio.listen(server);
 
 // include force: true on lines 48 and 50
@@ -70,6 +73,7 @@ var server = app.listen(3000, function(){
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   console.error(err);
+  console.trace(err);
   // res.render(
   //   // ... fill in this part
   // );

@@ -3,28 +3,24 @@
 
 {% block selector %}
 
-  Hotels: <select>{% for hotel in hotels %}
+Hotels: <select>{% for hotel in hotels %}
 
                         <option>{{hotel.name}}</option>
 
-          </select>
 
-{% endforloop %}
+
+{% endfor %}        </select>
 
 Restaurants: <select>{% for restaurant in restaurants %}
 
                       <option>{{restaurant.name}}</option>
 
-        </select>
-
-{% endforloop %}
+{% endfor %}        </select>
 
 Activities: <select>{% for activity in activites %}
 
                       <option>{{activity.name}}</option>
 
-        </select>
-
-{% endforloop %}
+{% endfor %}        </select>
 
 {% endblock %}

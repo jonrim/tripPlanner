@@ -21,7 +21,7 @@ var Place = db.define('place', {
     location: {
         type: Sequelize.ARRAY(Sequelize.FLOAT),
         allowNull: false
-    },
+    }
 });
 
 module.exports = Place;

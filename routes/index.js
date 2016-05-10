@@ -1,19 +1,28 @@
 'use strict';
 
+var Promise = require('bluebird');
+// var Place = require('../models/place');
+var Hotel = require('../models/hotel');
+var Restaurant = require('../models/restaurant');
+var Activity = require('../models/activity');
+
+// var models = require('../models')
 
 function makeRouter(app, models) {
-  var model = models.model;
+
   app.get('/', (req, res, next) => {
-    var hotels = model('hotel').findAll;
-    var restaurants = model('restaurant').findAll;
-    var activities = model('activity').findAll;
-    Promise.all([hotels, restaurants, activities]).spread( (hotelsQ, restaurantsQ, activitiesQ) => {
-      res.render('index',{
-        hotels: hotelsQ,
-        restaurants: restaurantsQ,
-        activities: activitiesQ
+    // console.log(models.model('hotel').findAll.toString());
+    var hotels = Hotel.findAll();
+    var restaurants = Restaurant.findAll();
+    var activities = Activity.findAll();
+    Promise.all([hotels, restaurants, activities]).then( result =>  {
+      console.log(result);
+      res.render('selector.html',{
+        hotels: result[0],
+        restaurants: result[1],
+        activities: result[2]
       })
-    }).catch( err => console.error( err ) )
+    } ).catch( err => console.trace( err ) )
   })
 }
 
