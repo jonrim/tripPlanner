@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build-css & nodemon -e html,js,css ./app.js",
-    "build-css": "node-sass -w -r assets/stylesheets -o public stylesheets"
+    "start-css": "npm run build-css & nodemon -e html,js,css app.js",
+    "start": "nodemon -e html,js,css app.js",
+    "build-css": "node-sass -w -r assets/stylesheets -o public/stylesheets"
   },
   "author": "",
   "license": "ISC",

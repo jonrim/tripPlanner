@@ -28,6 +28,7 @@ app.use(bodyParser.json()); // would be for AJAX requests
 // connect to postgres
 client.connect();
 
+// var io = socketio.listen(server);
 
 // the typical way to use express static middleware.
 app.use(express.static(path.join(__dirname, '/public')));
@@ -38,7 +39,6 @@ app.use('/jquery', express.static(path.join(__dirname, '/node_modules/jquery/dis
 var server = app.listen(3000, function(){
   console.log('listening on port 3000');
 });
-// var io = socketio.listen(server);
 
 // include force: true on lines 48 and 50
 // to wipe the database clean on every reboot
@@ -55,9 +55,9 @@ var server = app.listen(3000, function(){
 // })
 // .catch(console.error);
 
-// app.get('/', function(req, res, next) {
-//
-// });
+app.get('/', function(req, res, next) {
+	res.render('views/index');
+});
 
 
 // catch 404 (i.e., no route was hit) and forward to error handler
