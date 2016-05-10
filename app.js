@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var pg = require('pg');
 var models = require('./models');
-var indexRouter = express.Router(require('./routes')(app, models));
+var indexRouter = express.Router(require('./routes')(app));
 var conString = 'postgres://postgres:password@localhost:5432/tripplanner';
 var client = new pg.Client(conString);
 
@@ -59,9 +59,9 @@ models.sync({}).then( result => {
 // })
 // .catch(console.error);
 
-app.get('/', function(req, res, next) {
-	res.render('views/index');
-});
+// app.get('/', function(req, res, next) {
+// 	res.render('views/index');
+// });
 
 
 // catch 404 (i.e., no route was hit) and forward to error handler
