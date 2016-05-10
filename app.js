@@ -5,7 +5,7 @@ var swig = require('swig');
 var indexRouter = require('./routes/index');
 var fs = require('fs');
 var bodyParser = require('body-parser');
-// var path = require('path');
+var path = require('path');
 var pg = require('pg');
 var models = require('./models');
 var conString = 'postgres://postgres:password@localhost:5432/tripplanner';
@@ -25,8 +25,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // for HTML form submits
 app.use(bodyParser.json()); // would be for AJAX requests
 
 // start the server
-var server = app.listen(1337, function(){
-  console.log('listening on port 1337');
+var server = app.listen(3000, function(){
+  console.log('listening on port 3000');
 });
 // var io = socketio.listen(server);
 
@@ -37,6 +37,8 @@ client.connect();
 
 // the typical way to use express static middleware.
 app.use(express.static(path.join(__dirname, '/public')));
+app.use('/bootstrap', express.static(path.join(__dirname, '/node_modules/bootstrap/dist')));
+app.use('/jquery', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
 
 
 // include force: true on lines 48 and 50

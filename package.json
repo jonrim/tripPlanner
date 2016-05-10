@@ -4,18 +4,25 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build-css & nodemon -e html,js,css ./app.js",
+    "build-css": "node-sass -w -r assets/stylesheets -o public stylesheets"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.3.5",
     "body-parser": "^1.15.1",
+    "bootstrap": "^3.3.6",
     "express": "^4.13.4",
+    "jquery": "^2.2.3",
     "morgan": "^1.7.0",
     "pg": "^4.5.5",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.23.0",
     "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "node-sass": "^3.7.0"
   }
 }
