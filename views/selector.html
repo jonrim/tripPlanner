@@ -1,7 +1,4 @@
 
-{% extends 'index.html' %}
-
-{% block selector %}
 
 Hotels: <select>{% for hotel in hotels %}
 
@@ -22,5 +19,3 @@ Activities: <select>{% for activity in activities %}
                       <option>{{activity.name}}</option>
 
 {% endfor %}</select>
-
-{% endblock %}
