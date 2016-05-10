@@ -1,5 +1,19 @@
 body {
-	p {
-		font-size: 16px;
+	div {
+		.col {
+			&-md {
+				&-4 {
+					#options {
+						row {
+							padding-top: 20px;
+							padding-bottom: 20px;
+						}
+						.dropdown-toggle {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
 	}
 }
