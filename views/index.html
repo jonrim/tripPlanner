@@ -7,7 +7,6 @@
     <meta name="author" content="">
 
     <title>FSGO - The Go (Almost) Anywhere Trip Planner</title>
-    <link rel="stylesheet" href="public/stylesheets/tripplanner.css" async="true">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
@@ -15,6 +14,8 @@
     <!-- Bootstrap core CSS -->
     <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="/stylesheets/shoestring.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="stylesheets/tripplanner.css" async="true">
+
   </head>
 
   <body>
@@ -75,6 +76,7 @@
 
     </header>
     <!-- This is where map should go -->
+    <div class = "col-md-8">{% include "./map.html" %}</div>
 
     <div class="col-md-4">
       <div class="row">
@@ -83,7 +85,7 @@
             Options
           </div>
           <div class="panel-body">
-          {% block selector %}{% endblock %}
+          {% include "./selector.html" %}
           </div>
         </div>
       </div>
@@ -91,7 +93,7 @@
       <h1>Day 2</h1>
       </div>
       <div class="row">
-        <div class="panel panel-default" id="options">
+        <div class="panel panel-default">
           <div class="btn-group" role="group" aria-label="...">
             <button type="button" class="btn btn-default">1</button>
             <button type="button" class="btn btn-default">2</button>
@@ -100,13 +102,38 @@
           </div>
           <div class="panel-body">
 
+            My Hotel <br>
+            <div class="col-md-10">
+              <ul>
+                Hotel
+              </ul>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-danger">X</button>
+            </div>
+            My Restaurants <br>
+            <div class="col-md-10">
+              <ul>
+                Restaurants
+              </ul>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-danger">X</button>
+            </div>
+            My Activities <br>
+            <div class="col-md-10">
+              <ul>
+                Activities
+              </ul>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-danger">X</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-        <div>{% include "./selector.html" %}</div>
-        <div>{% include "./map.html" %}</div>
 
   </body>
 

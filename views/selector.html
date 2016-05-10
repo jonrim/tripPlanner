@@ -1,6 +1,6 @@
 
 <row>
-	<div class="col-md-2">
+	<div class="col-md-2 col-sm-12">
 		<h7>Hotels</h7>
 	</div>
 	<div class="col-md-8">
@@ -9,7 +9,7 @@
 		    Select a hotel
 		    <span class="caret"></span>
 		  </button>
-		  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+		  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
 		  	{% for hotel in hotels %}
 		      <li><a href="#">{{hotel.name}}</a></li>
 				{% endfor %}
@@ -62,25 +62,3 @@
 		<button type="button" class="btn btn-danger">X</button>
 	</div>
 </row>
-
-
-
-Hotels: <select>{% for hotel in hotels %}
-
-                        <option>{{hotel.name}}</option>
-
-
-
-{% endfor %}        </select>
-
-Restaurants: <select>{% for restaurant in restaurants %}
-
-                      <option>{{restaurant.name}}</option>
-
-{% endfor %}        </select>
-
-Activities: <select>{% for activity in activities %}
-
-                      <option>{{activity.name}}</option>
-
-{% endfor %}</select>
