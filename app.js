@@ -4,7 +4,7 @@ var morgan = require('morgan');
 var swig = require('swig');
 var fs = require('fs');
 var bodyParser = require('body-parser');
- var path = require('path');
+var path = require('path');
 var pg = require('pg');
 var models = require('./models');
 var indexRouter = express.Router(require('./routes')(app, models));
@@ -25,13 +25,14 @@ app.use(bodyParser.urlencoded({ extended: true })); // for HTML form submits
 app.use(bodyParser.json()); // would be for AJAX requests
 
 
-
 // connect to postgres
 client.connect();
 
 
 // the typical way to use express static middleware.
 app.use(express.static(path.join(__dirname, '/public')));
+app.use('/bootstrap', express.static(path.join(__dirname, '/node_modules/bootstrap/dist')));
+app.use('/jquery', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
 
 // start the server
 var server = app.listen(3000, function(){
