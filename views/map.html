@@ -1,15 +1,43 @@
 
 
-<div id="map" style="height: 100vh; width: 100vw"></div>
+<div id="map" style="width:100vw; height:100vh"></div>
 
     <script>
       var map;
+      var mapOptions = {{purpleMap|raw|json}};
+      var afterZoomOptions = mapOptions.slice(0,-1).concat({{afterZoom|raw|json}});
+      var zoom = 3;
+      var maxZoom = 15;
+      var zoomSpeed = 600;
       function initMap() {
+        $('.panelsparent').toggle();
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
+          center: {lat: 32.8203525, lng: -97.0115281},
+          zoom: zoom,
+          tilt: 45,
+          styles: mapOptions,
+          MapTypeId: 'HYBRID'
+        })
+        map.panTo({lat: 40.7050614, lng: -74.011343});
+        map.setZoom(zoom++)
+        var zoomer = setInterval(function(){
+          if(zoom >= maxZoom) afterZoom();
+          return map.setZoom(zoom++)
+        },zoomSpeed);
+        function afterZoom(){
+          clearInterval(zoomer);
+          setTimeout(function(){
+            $('.navbar-subbrand').fadeOut(500, function() {
+              $(this).html("<a href='#'>Day 2</a>").fadeIn(500)
+              $('.panelsparent').toggle().fadeIn(500);
+            });
+            return map.setOptions({styles: afterZoomOptions});
+          },3000);
+        }
+
       }
+
+
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{mapKey}}&callback=initMap"
     async defer></script>

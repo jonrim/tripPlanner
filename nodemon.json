@@ -1,0 +1,5 @@
+{
+  "events": {
+    "restart": "node-sass -o public/stylesheets assets/stylesheets"
+  }
+}
