@@ -4,10 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "prestart": "node-sass -o public/stylesheets assets/stylesheets",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-css": "npm run build-css & nodemon -e html,js,css app.js",
-    "start": "nodemon -e html,js,css app.js",
-    "build-css": "node-sass -w -r assets/stylesheets -o public/stylesheets"
+    "start": "nodemon -e html,js,scss app.js",
+    "build-css": "node-sass -o public/stylesheets assets/stylesheets"
   },
   "author": "",
   "license": "ISC",
@@ -18,9 +18,11 @@
     "express": "^4.13.4",
     "jquery": "^2.2.3",
     "morgan": "^1.7.0",
+    "node-sass": "^3.7.0",
     "pg": "^4.5.5",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.23.0",
+    "socketio": "^1.0.0",
     "swig": "^1.4.2"
   },
   "devDependencies": {

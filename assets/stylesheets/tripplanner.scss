@@ -1,21 +1,90 @@
-$primary-color: 'e7ddff';
-$secondary-color: '9666ff';
-$accent-color: 'faed26';
-$light-transparent: 0.5;
-$transparent: 0;
+$primary-color: #e7ddff;
+$secondary-color: #9666ff;
+$tertiary-color: desaturate($secondary-color, 50%);
+$accent-color: #faed26;
+$secondary-accent: complement($accent-color);
+$base-nav-height: 50px;
+$title-text: 15vh;
+$sub-text: 8vh;
 
-.transparent {
-	opacity: $transparent;
-	&-light {
-		opacity: $light-transparent;
+
+
+#bootstrap-overrides {
+	.dropdown-toggle {
+		background-color: $tertiary-color;
+		border: none;
 	}
-}
-
-nav {
-	@extend .transparent;
-}
-
-body {
+	.panel-heading {
+		background-color: $tertiary-color;
+		&>.btn {
+			background-color: $accent-color;
+		}
+	}
+	.selectorrow {
+		margin-bottom: 20px;
+	}
+	.panelsparent {
+		position:fixed;
+		bottom:0px;
+		right:0px;
+		h3 {
+			color: $accent-color;
+		}
+		color: $accent-color;
+	}
+	.btn {
+		&-circle {
+			background: none;
+			color: $tertiary-color;
+			border-color: $tertiary-color;
+			border-radius: 20px;
+		}
+	}
+	.panel {
+		background-color: transparentize($primary-color, 0.85);;
+	}
+	#mapdiv {
+		padding:0;
+		margin:0;
+		left:0;
+		position:fixed;
+		z-index:-1;
+		height: 100vh;
+		width:100vh;
+	}
+	.nav {
+		&bar {
+			position: fixed;
+			width: 100%;
+			height: $base-nav-height;
+			&-brand {
+				&-start {
+					float: none;
+					a {color: $accent-color;}
+					font-size: $title-text;
+					padding-top: 60vh;
+					width: 20vw;
+					padding-bottom: $sub-text;
+					display: block;
+				}
+			}
+			&-subbrand {
+				padding-top: 1vh;
+				a, p {color: $secondary-color;}
+				font-size: $sub-text;
+				width: 40vw;
+				display: block;
+			}
+			&-default {
+				background-color:transparent;
+				z-index:100;
+				border: none;
+				li.active>a {
+					background-color: $accent-color;
+				}
+			}
+		}
+	}
 	.col {
 		&-md {
 			&-4 {
